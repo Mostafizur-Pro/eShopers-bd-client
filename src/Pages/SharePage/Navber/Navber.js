@@ -5,7 +5,7 @@ const Navber = () => {
   const menuItem = (
     <>
       <li>
-        <a>Home</a>
+        <Link to="/">Home</Link>
       </li>
       <li>
         <a>
@@ -85,7 +85,7 @@ const Navber = () => {
         <Link to="/about">About</Link>
       </li>
       <li>
-        <a>Contact</a>
+        <Link to="/contact">Contact</Link>
       </li>
     </>
   );
