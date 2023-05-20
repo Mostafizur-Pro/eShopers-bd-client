@@ -11,24 +11,26 @@ const Footer = () => {
     <p>Email: mostafizur0195@gmail.com</p>
   </div> 
   <div>
-    <span className="footer-title">Services</span> 
-    <Link to='/' className="link link-hover">Branding</Link> 
-    <Link to='/' className="link link-hover">Design</Link> 
-    <Link to='/' className="link link-hover">Marketing</Link> 
-    <Link to='/' className="link link-hover">Advertisement</Link>
+    <span className="footer-title text-xl">MENU</span> 
+    <Link to='/about' className=" ">About Me</Link> 
+    <Link to='/about' className=" ">About Service</Link> 
+    <Link to='/contact' className=" ">Contact Us</Link> 
+    <Link to='/blogs' className=" ">Blogs</Link>
   </div> 
   <div>
-    <span className="footer-title">Company</span> 
-    <Link to='/' className="link link-hover">About us</Link> 
-    <Link to='/' className="link link-hover">Contact</Link> 
-    <Link to='/' className="link link-hover">Jobs</Link> 
-    <Link to='/' className="link link-hover">Press kit</Link>
+    <span className="footer-title text-xl">Services</span> 
+    <Link to='/' className=" ">Shipping Policy</Link> 
+    <Link to='/' className=" ">Help & Contact Us</Link> 
+    <Link to='/' className=" ">Returns & Refunds</Link> 
+    <Link to='/' className=" ">Terms & Conditions</Link>
   </div> 
   <div>
-    <span className="footer-title">Legal</span> 
-    <Link to='/' className="link link-hover">Terms of use</Link> 
-    <Link to='/' className="link link-hover">Privacy policy</Link> 
-    <Link to='/' className="link link-hover">Cookie policy</Link>
+    <span className="footer-title text-xl">Newsletter Sign Up</span> 
+    <p className=" ">Sign up for the weekly newsletter and build better ecommerce stores</p> 
+    <div className='flex'>
+    <input type="email" placeholder="Enter your email" className="input input-bordered w-full max-w-xs" />
+    <button className="btn btn-error">Subscribe</button>
+    </div>
   </div>
 </footer>
             
