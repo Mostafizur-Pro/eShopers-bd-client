@@ -82,7 +82,7 @@ const Navber = () => {
         <a>Blogs</a>
       </li>
       <li>
-        <a>About</a>
+        <Link to="/about">About</Link>
       </li>
       <li>
         <a>Contact</a>
