@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../../../assete/logo/logo.PNG";
 
 const Navber = () => {
   const [shopLists, setShopList] = useState([]);
@@ -16,6 +17,9 @@ const Navber = () => {
     <>
       <li>
         <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/products">Products</Link>
       </li>
       <li>
         <a>
@@ -53,21 +57,29 @@ const Navber = () => {
             <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
           </svg>
         </a>
-        <ul className="p-2 bg-white  z-40  ">
-          {shopLists.map((shoplist) => (
-            <li>
-              <Link to={`/collections/${shoplist?.title}`}>
-                <div className="card bg-base-100 shadow-xl">
-                  <figure>
-                    <img src={shoplist.picture} alt="imag" />
-                  </figure>
-                  <div className="card-body">
-                    <h2 className="card-title text-2xl">{shoplist?.name}</h2>
+        <ul className="   ">
+          <div className="flex w-40   p-2 bg-white z-20">
+            {shopLists.map((shoplist) => (
+              <li>
+                <Link to={`/collections/${shoplist?.title}`}>
+                  <div className="card bg-base-100  shadow-xl ">
+                    <figure>
+                      <img
+                        className="w-full "
+                        src={shoplist.picture}
+                        alt="imag"
+                      />
+                    </figure>
+                    <div className="card-body w-0">
+                      <h2 className="card-title text-center text-sm">
+                        {shoplist?.name}
+                      </h2>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            </li>
-          ))}
+                </Link>
+              </li>
+            ))}
+          </div>
         </ul>
       </li>
 
@@ -112,8 +124,9 @@ const Navber = () => {
             </ul>
           </div>
           <div>
-            <Link to="/" className="  font-bold text-4xl">
-              e<span className="text-orange-400">Shoppers</span>
+            <Link to="/" className="  font-bold text-4xl flex">
+              <img className="w-16" src={logo} alt="" />
+              <span className="text-orange-400">Shoppers</span>
             </Link>
           </div>
         </div>

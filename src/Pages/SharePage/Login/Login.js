@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import loginAnimation from "../../../assete/Login/login.gif";
+import logo from "../../../assete/logo/logo.PNG";
 
 const Login = () => {
   const {
@@ -27,8 +28,9 @@ const Login = () => {
           <div className="card flex-shrink-0 h-4/6 w-full max-w-sm ">
             <div className="  m-5">
               <div className="w-6/12">
-                <Link to="/" className=" normal-case font-bold text-4xl">
-                  e<span className="text-orange-400">Shoppers</span>
+                <Link to="/" className="  font-bold text-4xl flex">
+                  <img className="w-16" src={logo} alt="" />
+                  <span className="text-orange-400">Shoppers</span>
                 </Link>
               </div>
             </div>
