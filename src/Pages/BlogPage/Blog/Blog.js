@@ -4,7 +4,7 @@ import BlogBody from '../BlogBody/BlogBody';
 
 const Blog = () => {
     return (
-        <div>
+        <div className='mb-20'>
             <BlogBanner/>
             <BlogBody/>
         </div>
