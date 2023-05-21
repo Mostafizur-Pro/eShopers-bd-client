@@ -29,7 +29,7 @@ const Footer = () => {
     <p className=" ">Sign up for the weekly newsletter and build better ecommerce stores</p> 
     <div className='flex'>
     <input type="email" placeholder="Enter your email" className="input input-bordered w-full max-w-xs" />
-    <button className="btn btn-error">Subscribe</button>
+    <button className="btn btn-error rounded-l-lg">Subscribe</button>
     </div>
   </div>
 </footer>
