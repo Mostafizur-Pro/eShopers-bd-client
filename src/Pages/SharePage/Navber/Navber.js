@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import pic01 from '../../../assete/Collection/pic01.jpg'
+import pic02 from '../../../assete/Collection/pic02.jpg'
+import pic03 from '../../../assete/Collection/pic03.jpg'
 
 const Navber = () => {
   const menuItem = (
@@ -20,25 +23,23 @@ const Navber = () => {
             <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
           </svg>
         </a>
-        <ul className="p-2 bg-gray-400  z-40  ">
+        <ul className="p-2 bg-white  z-40  ">
           <li>
-            <Link to="/categorydetails/Laptop">Laptop</Link>
+            <Link to="/collections/spa">Spa</Link>
           </li>
           <li>
-            <Link to="/categorydetails/Monitor">Monitor</Link>
+            <Link to="/collections/beauty">Beauty</Link>
           </li>
           <li>
-            <Link to="/categorydetails/Printer">Printer</Link>
+            <Link to="/collections/makeup">Make up</Link>
           </li>
           <li>
-            <Link to="/categorydetails/Desktop">Desktop</Link>
+            <Link to="/collections/skincare">Skin care</Link>
           </li>
           <li>
-            <Link to="/categorydetails/Accessories">Accessories</Link>
+            <Link to="/collections/bbcreams">BB Creams</Link>
           </li>
-          <li>
-            <Link to="/categorydetails/Products">Products</Link>
-          </li>
+         
         </ul>
         {/* <Link to="/categorydetails/laptop">Category List</Link> */}
       </li>
@@ -55,31 +56,66 @@ const Navber = () => {
             <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
           </svg>
         </a>
-        <ul className="p-2 bg-gray-400  z-40  ">
+        <ul className="p-2 bg-white  z-40  ">
+          
           <li>
-            <Link to="/categorydetails/Laptop">Laptop</Link>
+            <Link to="/collections/spa">
+            <div className="card  bg-base-100 shadow-xl">
+          <figure><img src={pic01} alt="Shoes" /></figure>
+          <div className="card-body">
+            <h2 className="card-title text-2xl">Spa</h2>
+          </div>
+        </div>
+            </Link>
           </li>
           <li>
-            <Link to="/categorydetails/Monitor">Monitor</Link>
+            <Link to="/collections/beauty">
+            <div className="card  bg-base-100 shadow-xl">
+          <figure><img src={pic02} alt="Shoes" /></figure>
+          <div className="card-body">
+            <h2 className="card-title text-2xl">Beauty</h2>
+          </div>
+        </div>
+            </Link>
           </li>
           <li>
-            <Link to="/categorydetails/Printer">Printer</Link>
+            <Link to="/collections/makeup">
+            <div className="card  bg-base-100 shadow-xl">
+          <figure><img src={pic03} alt="Shoes" /></figure>
+          <div className="card-body">
+            <h2 className="card-title text-2xl">Make up</h2>
+          </div>
+        </div>
+            </Link>
           </li>
           <li>
-            <Link to="/categorydetails/Desktop">Desktop</Link>
+            <Link to="/collections/skincare">
+            <div className="card  bg-base-100 shadow-xl">
+          <figure><img src={pic01} alt="Shoes" /></figure>
+          <div className="card-body">
+            <h2 className="card-title text-2xl">Skin care</h2>
+          </div>
+        </div>
+            </Link>
           </li>
           <li>
-            <Link to="/categorydetails/Accessories">Accessories</Link>
+            <Link to="/collections/bbcreams">
+            <div className="card  bg-base-100 shadow-xl">
+          <figure><img src={pic02} alt="Shoes" /></figure>
+          <div className="card-body">
+            <h2 className="card-title text-2xl">BB Creams</h2>
+          </div>
+        </div>
+            </Link>
           </li>
-          <li>
-            <Link to="/categorydetails/Products">Products</Link>
-          </li>
+         
+         
         </ul>
-        {/* <Link to="/categorydetails/laptop">Category List</Link> */}
+      
       </li>
 
       <li>
-        <a>Blogs</a>
+        <Link to="/blogs">Blogs</Link>
       </li>
       <li>
         <Link to="/about">About</Link>

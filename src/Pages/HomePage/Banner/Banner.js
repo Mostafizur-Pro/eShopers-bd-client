@@ -8,7 +8,7 @@ const Banner = () => {
         <div className='my-20'>
             <section className='grid grid-cols-3 gap-5 h-full'>
                 <div className='col-span-1 '>
-                <div className="hero min-h-full" style={{ backgroundImage: `url(${images1})`}}>
+                <div className="hero min-h-full" style={{ backgroundImage: `url(${images1})`, }}>
   <div className="hero-overlay bg-opacity-10"></div>
   <div className="hero-content  text-neutral-content">
     <div className="max-w-md text-black my-16">
