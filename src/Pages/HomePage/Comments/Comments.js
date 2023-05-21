@@ -3,7 +3,7 @@ import commentImage from "../../../assete/Comments/commentImage.jpg";
 
 const Comments = () => {
   return (
-    <div>
+    <div className="my-10">
       <div className="carousel w-full">
         <div id="slide5" className="carousel-item relative w-full">
           <div

@@ -17,21 +17,22 @@ const Sliderbanner = () => {
           >
             <div className="flex justify-around items-center w-full">
               <div className=" text-center  ">
-                <h2 className=" text-5xl">Skin</h2>
-                <h2 className=" text-5xl">Anti-aging</h2>
+                <h2 className=" text-5xl">Spray</h2>
+                <h2 className=" text-5xl">Moisturizing</h2>
                 <p className="text-lg mt-5">
                   Unique as the coffe beans is intended for this little scoop
                   will make your morning ritual a special
                 </p>
 
-                <button className="btn btn-outline mt-5 ">DISCOVER NOW</button>
+                <button className="btn btn-outline rounded-none mt-5 ">
+                  DISCOVER NOW
+                </button>
               </div>
               <figure>
-                <img className="w-full" src={img02} alt="Movie" />
+                <img className="w-full" src={img05} alt="banner" />
               </figure>
             </div>
           </div>
-
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide3" className="btn btn-circle">
               ❮
@@ -43,7 +44,7 @@ const Sliderbanner = () => {
         </div>
         <div id="slide2" className="carousel-item relative w-full">
           <div
-            className="hero "
+            className="hero  "
             style={{
               backgroundImage: `url(${backgroundImg})`,
             }}
@@ -51,19 +52,22 @@ const Sliderbanner = () => {
             <div className="flex justify-around items-center w-full">
               <div className=" text-center  ">
                 <h2 className=" text-5xl">Skin</h2>
-                <h2 className=" text-5xl">Lightening cream</h2>
+                <h2 className=" text-5xl">Anti-aging</h2>
                 <p className="text-lg mt-5">
                   Unique as the coffe beans is intended for this little scoop
                   will make your morning ritual a special
                 </p>
 
-                <button className="btn btn-outline mt-5 ">DISCOVER NOW</button>
+                <button className="btn btn-outline rounded-none mt-5 ">
+                  DISCOVER NOW
+                </button>
               </div>
               <figure>
-                <img className="w-full" src={img04} alt="Movie" />
+                <img className="w-full" src={img02} alt="banner" />
               </figure>
             </div>
           </div>
+
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide1" className="btn btn-circle">
               ❮
@@ -82,17 +86,19 @@ const Sliderbanner = () => {
           >
             <div className="flex justify-around items-center w-full">
               <div className=" text-center  ">
-                <h2 className=" text-5xl">Spray</h2>
-                <h2 className=" text-5xl">Moisturizing</h2>
+                <h2 className=" text-5xl">Skin</h2>
+                <h2 className=" text-5xl">Lightening cream</h2>
                 <p className="text-lg mt-5">
                   Unique as the coffe beans is intended for this little scoop
                   will make your morning ritual a special
                 </p>
 
-                <button className="btn btn-outline mt-5 ">DISCOVER NOW</button>
+                <button className="btn btn-outline rounded-none mt-5 ">
+                  DISCOVER NOW
+                </button>
               </div>
               <figure>
-                <img className="w-full" src={img05} alt="Movie" />
+                <img className="w-full" src={img04} alt="banner" />
               </figure>
             </div>
           </div>

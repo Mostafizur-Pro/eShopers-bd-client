@@ -12,7 +12,9 @@ const OrganicNatural = () => {
           <p>TOP DISCOUNT</p>
           <h1 className="text-4xl font-bold">ORGANIC NATURAL</h1>
           <p>Top Quality Item Skincare</p>
-          <button className="btn mt-5 btn-outline">Read More</button>
+          <button className="btn mt-5 btn-outline border-gray-50 text-white rounded-none">
+            Read More
+          </button>
         </div>
       </div>
     </div>

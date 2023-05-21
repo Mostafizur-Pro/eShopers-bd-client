@@ -5,6 +5,7 @@ import TopSellingProduct from "../TopSellingProduct/TopSellingProduct";
 import Banner from "../Banner/Banner";
 import OrganicNatural from "../OrganicNatural/OrganicNatural";
 import Comments from "../Comments/Comments";
+import OurBlogs from "../OurBlogs/OurBlogs";
 
 const Home = () => {
   useTitle("Home");
@@ -15,6 +16,7 @@ const Home = () => {
       <OrganicNatural />
       <TopSellingProduct />
       <Comments />
+      <OurBlogs />
     </div>
   );
 };

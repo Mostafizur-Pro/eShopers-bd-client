@@ -1,0 +1,67 @@
+[
+    {
+        "id":1, 
+        "title":"OTT10 – Upholstered Simple",
+        "picture":"https://i.ibb.co/cY8W6k1/pic03.jpg",
+        "details":"Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall the show on the road.",
+        "price":"$38.01",
+        "oldPrice":"$42.00",
+        "size": ["100ml", "200ml", "300ml", "400ml"],
+        "Collections":"BB Creams",
+        "ProductType":"Make up",
+        "Availability":"In stock"
+
+    },
+    {
+        "id":2,   
+        "title":"OTT10 – Upholstered Simple",
+        "picture":"https://i.ibb.co/cY8W6k1/pic03.jpg",
+        "details":"Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall the show on the road.",
+        "price":"$41.00",
+        "oldPrice":"$61.00",       
+        "Collections":"BB Creams",
+        "ProductType":"Beauty"   
+    },
+    {
+        "id":3,     
+        "title":"OTT10 – Upholstered Simple",
+        "picture":"https://cdn.shopify.com/s/files/1/0071/1190/1231/products/8_2048x2048.jpg?v=1606898727",
+        "details":"Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall the show on the road.",
+        "price":"$41.00",
+        "oldPrice":"$51.00",        
+        "Collections":"BB Creams",
+        "ProductType":"Make up"      
+    },
+        {
+        "id":4,   
+        "title":"OTT10 – Upholstered Simple",
+        "picture":"https://cdn.shopify.com/s/files/1/0071/1190/1231/products/4_d110614c-6558-48ee-a0ac-22ca6dbf7327_2048x2048.jpg?v=1606898614",
+        "details":"Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall the show on the road.",
+        "price":"$58.00",
+        "oldPrice":"$63.00",      
+        "Collections":"BB Creams",
+        "ProductType":"Beauty"
+       
+    },
+        {
+        "id":5,   
+        "title":"OTT10 – Upholstered Simple",
+        "picture":"https://cdn.shopify.com/s/files/1/0071/1190/1231/products/11_2048x2048.jpg?v=1606898807",
+        "details":"Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall the show on the road.",
+        "price":"$62.00",
+        "oldPrice":"$71.00",        
+        "Collections":"BB Creams",
+        "ProductType":"Beauty"       
+    },
+        {
+        "id":6,   
+        "title":"OTT10 – Upholstered Simple",
+        "picture":"https://cdn.shopify.com/s/files/1/0071/1190/1231/products/19_2048x2048.jpg?v=1620956659",
+        "details":"Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall the show on the road.",
+        "price":"$62.00",      
+        "Collections":"BB Creams",
+        "ProductType":"Beauty",
+        "Availability":"In stock"
+    }
+    
+]

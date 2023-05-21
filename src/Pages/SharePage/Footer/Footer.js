@@ -53,9 +53,11 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered rounded-none rounded-l-lg w-full max-w-xs"
             />
-            <button className="btn btn-error rounded-l-lg">Subscribe</button>
+            <button className="btn btn-error rounded-none rounded-r-lg">
+              Subscribe
+            </button>
           </div>
         </div>
       </footer>
