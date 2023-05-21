@@ -1,0 +1,32 @@
+[
+    {
+        "id":1,
+        "name":"Spa",
+        "title":"spa",
+        "picture":"https://i.ibb.co/cY8W6k1/pic03.jpg"
+    },
+    {
+        "id":2,
+        "name":"Beauty",
+           "title":"beauty",
+        "picture":"https://i.ibb.co/3p7Lv8C/pic02.jpg" 
+    },
+    {
+        "id":3,
+        "name":"Make Up",
+         "title":"makeup",
+        "picture":"https://i.ibb.co/3zJy2bW/pic01.jpg" 
+    },
+    {
+        "id":4,
+        "name":"Skin care",
+         "title":"skincare",
+          "picture":"https://i.ibb.co/cY8W6k1/pic03.jpg"
+    },
+    {
+        "id":5,
+        "name":"BB Creams",
+         "title":"bbcreams",
+        "picture":"https://i.ibb.co/3p7Lv8C/pic02.jpg" 
+    }
+]

@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import pic01 from '../../../assete/Collection/pic01.jpg'
-import pic02 from '../../../assete/Collection/pic02.jpg'
-import pic03 from '../../../assete/Collection/pic03.jpg'
 
 const Navber = () => {
+  const [shopLists, setShopList] = useState([]);
+  useEffect(() => {
+    fetch("shoplist.json")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setShopList(data);
+      });
+  }, []);
+
   const menuItem = (
     <>
       <li>
@@ -24,24 +31,14 @@ const Navber = () => {
           </svg>
         </a>
         <ul className="p-2 bg-white  z-40  ">
-          <li>
-            <Link to="/collections/spa">Spa</Link>
-          </li>
-          <li>
-            <Link to="/collections/beauty">Beauty</Link>
-          </li>
-          <li>
-            <Link to="/collections/makeup">Make up</Link>
-          </li>
-          <li>
-            <Link to="/collections/skincare">Skin care</Link>
-          </li>
-          <li>
-            <Link to="/collections/bbcreams">BB Creams</Link>
-          </li>
-         
+          {shopLists.map((shoplist) => (
+            <li>
+              <Link to={`/collections/${shoplist?.title}`}>
+                {shoplist?.name}
+              </Link>
+            </li>
+          ))}
         </ul>
-        {/* <Link to="/categorydetails/laptop">Category List</Link> */}
       </li>
       <li>
         <a>
@@ -57,61 +54,21 @@ const Navber = () => {
           </svg>
         </a>
         <ul className="p-2 bg-white  z-40  ">
-          
-          <li>
-            <Link to="/collections/spa">
-            <div className="card  bg-base-100 shadow-xl">
-          <figure><img src={pic01} alt="Shoes" /></figure>
-          <div className="card-body">
-            <h2 className="card-title text-2xl">Spa</h2>
-          </div>
-        </div>
-            </Link>
-          </li>
-          <li>
-            <Link to="/collections/beauty">
-            <div className="card  bg-base-100 shadow-xl">
-          <figure><img src={pic02} alt="Shoes" /></figure>
-          <div className="card-body">
-            <h2 className="card-title text-2xl">Beauty</h2>
-          </div>
-        </div>
-            </Link>
-          </li>
-          <li>
-            <Link to="/collections/makeup">
-            <div className="card  bg-base-100 shadow-xl">
-          <figure><img src={pic03} alt="Shoes" /></figure>
-          <div className="card-body">
-            <h2 className="card-title text-2xl">Make up</h2>
-          </div>
-        </div>
-            </Link>
-          </li>
-          <li>
-            <Link to="/collections/skincare">
-            <div className="card  bg-base-100 shadow-xl">
-          <figure><img src={pic01} alt="Shoes" /></figure>
-          <div className="card-body">
-            <h2 className="card-title text-2xl">Skin care</h2>
-          </div>
-        </div>
-            </Link>
-          </li>
-          <li>
-            <Link to="/collections/bbcreams">
-            <div className="card  bg-base-100 shadow-xl">
-          <figure><img src={pic02} alt="Shoes" /></figure>
-          <div className="card-body">
-            <h2 className="card-title text-2xl">BB Creams</h2>
-          </div>
-        </div>
-            </Link>
-          </li>
-         
-         
+          {shopLists.map((shoplist) => (
+            <li>
+              <Link to={`/collections/${shoplist?.title}`}>
+                <div className="card bg-base-100 shadow-xl">
+                  <figure>
+                    <img src={shoplist.picture} alt="imag" />
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title text-2xl">{shoplist?.name}</h2>
+                  </div>
+                </div>
+              </Link>
+            </li>
+          ))}
         </ul>
-      
       </li>
 
       <li>
@@ -154,23 +111,42 @@ const Navber = () => {
               {menuItem}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case font-bold text-4xl">e<span className="text-orange-400">Shoppers</span></a>
+          <div>
+            <Link to="/" className="  font-bold text-4xl">
+              e<span className="text-orange-400">Shoppers</span>
+            </Link>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{menuItem}</ul>
         </div>
         <div className="collapse">
-  <input type="checkbox" />
-  <div className="btn btn-ghost btn-circle collapse-title text-xl font-medium">
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-    </div>
+          <input type="checkbox" />
+          <div className="btn btn-ghost btn-circle collapse-title text-xl font-medium">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </div>
 
-  <div className="collapse-content">
-    <p>hello</p>
-  </div>
-</div>
+          <div className="collapse-content">
+            <p>hello</p>
+          </div>
+        </div>
         <div className="navbar-end">
-          <a className="btn">Login</a>
+          <Link to="/login" className="btn btn-outline">
+            Login
+          </Link>
         </div>
       </div>
     </div>
