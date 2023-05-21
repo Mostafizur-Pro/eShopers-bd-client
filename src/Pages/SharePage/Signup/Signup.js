@@ -22,59 +22,6 @@ const Signup = () => {
     //   });
   };
 
-  //   const createImage = (data) => {
-  //     const image = data.image[0];
-  //     const formData = new FormData();
-  //     formData.append("image", image);
-  //     const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
-  //     fetch(url, {
-  //       method: "POST",
-  //       body: formData,
-  //     })
-  //       .then((res) => res.json())
-  //       .then((imgData) => {
-  //         if (imgData.success) {
-  //           const userInfo = {
-  //             name: data.name,
-  //             email: data.email,
-  //             number: data.number,
-  //             image: imgData.data.url,
-  //             userType: data.usertype,
-  //           };
-  //           const userInfofirebase = {
-  //             displayName: data.name,
-  //             photoURL: imgData.data.url,
-  //           };
-
-  //           updateUserProfile(userInfofirebase);
-
-  //           saveUser(userInfo);
-  //         }
-  //       });
-  //   };
-  const updateUserProfile = (userInfofirebase) => {
-    // updateUser(userInfofirebase)
-    //   .then(() => {})
-    //   .catch((err) => console.log(err));
-  };
-
-  const saveUser = (userInfo) => {
-    // fetch(
-    //   "https://b612-used-products-resale-server-side-mostafizur-pro.vercel.app/users",
-    //   {
-    //     method: "POST",
-    //     headers: {
-    //       "content-type": "application/json",
-    //     },
-    //     body: JSON.stringify(userInfo),
-    //   }
-    // )
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     // console.log("saveUser", data);
-    //     setCreatedUserEmail(userInfo.email);
-    //   });
-  };
   return (
     <div>
       <div className="hero  ">

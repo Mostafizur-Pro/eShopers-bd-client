@@ -1,6 +1,6 @@
 import React from "react";
-import img02 from "../../../assete/SliderBanner/img02.png";
 import backgroundImg from "../../../assete/SliderBanner/img03.jpg";
+import img02 from "../../../assete/SliderBanner/img02.png";
 import img04 from "../../../assete/SliderBanner/img04.png";
 import img05 from "../../../assete/SliderBanner/img05.png";
 
@@ -16,7 +16,7 @@ const Sliderbanner = () => {
             }}
           >
             <div className="flex justify-around items-center w-full">
-              <div className=" text-center  ">
+              <div className=" text-left ml-20">
                 <h2 className=" text-5xl">Spray</h2>
                 <h2 className=" text-5xl">Moisturizing</h2>
                 <p className="text-lg mt-5">
@@ -50,7 +50,7 @@ const Sliderbanner = () => {
             }}
           >
             <div className="flex justify-around items-center w-full">
-              <div className=" text-center  ">
+            <div className=" text-left ml-20">
                 <h2 className=" text-5xl">Skin</h2>
                 <h2 className=" text-5xl">Anti-aging</h2>
                 <p className="text-lg mt-5">
@@ -85,7 +85,7 @@ const Sliderbanner = () => {
             }}
           >
             <div className="flex justify-around items-center w-full">
-              <div className=" text-center  ">
+            <div className=" text-left ml-20">
                 <h2 className=" text-5xl">Skin</h2>
                 <h2 className=" text-5xl">Lightening cream</h2>
                 <p className="text-lg mt-5">

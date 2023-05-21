@@ -5,7 +5,7 @@ import image03 from "../../../assete/OurBlogs/03.webp";
 
 const OurBlogs = () => {
   return (
-    <div className="max-w-screen-2xl mx-auto">
+    <div className="">
       <div className="mb-20">
         <div className="text-center my-10">
           <h1 className="text-4xl font-semibold">Our Blog</h1>

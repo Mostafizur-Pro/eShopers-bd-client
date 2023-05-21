@@ -7,6 +7,7 @@ import Contact from "../../Pages/ContactPage/Contact/Contact";
 import Login from "../../Pages/SharePage/Login/Login";
 import Signup from "../../Pages/SharePage/Signup/Signup";
 import Products from "../../Pages/ProductsPage/Products/Products";
+import Blog from "../../Pages/BlogPage/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/blogs",
+        element: <Blog />,
       },
       {
         path: "/login",
