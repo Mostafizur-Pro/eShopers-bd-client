@@ -11,79 +11,73 @@ const AddProducts = () => {
   //   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   //   const [sellerInfo] = SellerInfo(user?.email);
-  const [imgbb, setImgbb] = useState("");
+  //   const [imgbb, setImgbb] = useState("");
+
+  const {
+    register,
+    handleSubmit: handleProduct,
+    formState: { errors },
+  } = useForm();
 
   const handleAddProduct = (data) => {
     console.log("data", data);
-    // createImageProduct(data);
-    // ----------------------------------------------------
+    createImage(data);
+  };
+  const createImage = (data) => {
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
-    // ----------------------------------------------------
-
-    // imgbb API theke url ta copy kora hoise
     const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
-    // console.log("imageHostKey", url);
     fetch(url, {
       method: "POST",
       body: formData,
     })
       .then((res) => res.json())
       .then((imgData) => {
-        // console.log("dispaly", imgData.data.display_url);
-
         if (imgData.success) {
-          const imageData = imgData.data.display_url;
-          setImgbb(imageData);
-          // console.log("img link", imageData);
-          const addProduct = {
-            // ...data,
-            // sellerEmail: sellerInfo.email,
-            // sellerName: sellerInfo.name,
-            // sellerVarify: sellerInfo.role,
-            // currentTime: new Date(),
-            // image_url: imgData.data.display_url,
+          const userInfo = {
+            ...data,
+            name: data.name,
+            email: data.email,
+            number: data.number,
+            image: imgData.data.url,
+            userType: "normalUser",
           };
 
-          saveUser(addProduct);
+          const userInfofirebase = {
+            displayName: data.name,
+            photoURL: imgData.data.url,
+          };
 
-          // navigate("/dashboard/myproducts");
+          //   updateUserProfile(userInfofirebase);
+
+          saveUser(userInfo);
+          // console.log('object', userInfo);
         }
       });
-    // console.log("imgbb image link", imageData);
-
-    // console.log("add product in server", addProduct);
   };
 
   const saveUser = (addProduct) => {
     console.log("saveuser", addProduct);
-    fetch(
-      "https://b612-used-products-resale-server-side-mostafizur-pro.vercel.app/addProduct",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(addProduct),
-      }
-    )
+    fetch("http://localhost:5000/addProduct", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(addProduct),
+    })
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
         if (data.acknowledged) {
           toast.success("Product add");
-          navigate("/dashboard/myproducts");
+          //   navigate("/deshboard/myproducts");
         } else {
           toast.error(data.message);
         }
       });
   };
-  const {
-    register,
-    handleSubmit: handleProduct,
-    formState: { errors },
-  } = useForm();
+
   return (
     <div>
       <div className="max-w-lg ">
@@ -96,7 +90,9 @@ const AddProducts = () => {
         >
           <label className="label">
             {" "}
-            <span className="label ">Product Name</span>
+            <span className="label ">
+              Product Name <span className="text-red-400">*</span>
+            </span>
           </label>
           <input
             type="text"
@@ -113,7 +109,9 @@ const AddProducts = () => {
             <div>
               <label className="label">
                 {" "}
-                <span className="label">Original Price</span>
+                <p className="label">
+                  Original Price <span className="text-red-400">*</span>
+                </p>
               </label>
               <input
                 type="text"
@@ -129,7 +127,9 @@ const AddProducts = () => {
             <div>
               <label className="label">
                 {" "}
-                <span className="label">Price</span>
+                <p className="label">
+                  Price <span className="text-red-400">*</span>
+                </p>
               </label>
               <input
                 type="text"
@@ -143,7 +143,7 @@ const AddProducts = () => {
               )}
             </div>
           </div>
-          <label className="label">
+          {/* <label className="label">
             {" "}
             <span className="label">Product Condition</span>
           </label>
@@ -163,11 +163,13 @@ const AddProducts = () => {
           </select>
           {errors.condition && (
             <p className="text-red-600">{errors.condition?.message}</p>
-          )}
+          )} */}
 
           <label className="label">
             {" "}
-            <span className="label">Mobile Number</span>
+            <p className="label">
+              Mobile Number <span className="text-red-400">*</span>
+            </p>
           </label>
           <input
             type="text"
@@ -183,28 +185,29 @@ const AddProducts = () => {
             <div>
               <label className="label">
                 {" "}
-                <span className="label">Location</span>
+                <p className="label">
+                  Rating <span className="text-red-400">*</span>
+                </p>
               </label>
-              <select
-                {...register("Location", {
-                  required: "Must be selected location",
+              <input
+                type="number"
+                {...register("rating", {
+                  required: "Enter your rating is required",
+                  min: 1,
+                  max: 5,
                 })}
-                className="select select-bordered max-w-lg"
-              >
-                <option hidden selected>
-                  Select Your Location
-                </option>
-                <option>Dhaka</option>
-                <option>Chottogram</option>
-              </select>
-              {errors.Location && (
-                <p className="text-red-600">{errors.Location?.message}</p>
+                className="input input-bordered w-full max-w-lg"
+              />
+              {errors.number && (
+                <p className="text-red-600">{errors.rating?.message}</p>
               )}
             </div>
             <div className="ml-10">
               <label className="label">
                 {" "}
-                <span className="label">Category</span>
+                <p className="label">
+                  Category <span className="text-red-400">*</span>
+                </p>
               </label>
               <select
                 {...register("category", {
@@ -215,12 +218,11 @@ const AddProducts = () => {
                 <option hidden selected>
                   Select Your Product Category
                 </option>
-                <option>Laptop</option>
-                <option>Monitor</option>
-                <option>Printer</option>
-                <option>Desktop</option>
-                <option>Accessories</option>
-                <option>Products</option>
+                <option>spa</option>
+                <option>beauty</option>
+                <option>makeup</option>
+                <option>skincare</option>
+                <option>bbcreams</option>
               </select>
               {errors.category && (
                 <p className="text-red-600">{errors.category?.message}</p>
@@ -230,21 +232,9 @@ const AddProducts = () => {
 
           <label className="label">
             {" "}
-            <span className="label">Use Year</span>
-          </label>
-          <input
-            type="text"
-            {...register("usedYear", {
-              required: "Your product uesd year is required",
-            })}
-            className="input input-bordered w-full max-w-lg"
-          />
-          {errors.usedYear && (
-            <p className="text-red-600">{errors.usedYear?.message}</p>
-          )}
-          <label className="label">
-            {" "}
-            <span className="label">Product Details</span>
+            <p className="label">
+              Product Details <span className="text-red-400">*</span>
+            </p>
           </label>
           <input
             type="textarea"
@@ -259,7 +249,9 @@ const AddProducts = () => {
           <div>
             <label className="label">
               {" "}
-              <span className="label">Select Your Image</span>
+              <p className="label">
+                Select Your Image <span className="text-red-400">*</span>
+              </p>
             </label>
             <input
               type="file"
@@ -293,7 +285,7 @@ const AddProducts = () => {
             </p> */}
               <div className="modal-action">
                 <input
-                  className="btn btn-accent "
+                  className="btn btn-outline "
                   type="submit"
                   value="Submit"
                 />

@@ -13,6 +13,7 @@ import Deshboard from "../../Layout/Deshboard/Deshboard";
 import AdminDeshboard from "../../Pages/SharePage/AdminDeshboard/AdminDeshboard";
 import AllUser from "../../Pages/SharePage/AllUser/AllUser";
 import AddProducts from "../../Pages/SharePage/AddProducts/AddProducts";
+import MyProducts from "../../Pages/SharePage/MyProducts/MyProducts";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
       {
         path: "/deshboard/addproducts",
         element: <AddProducts />,
+      },
+      {
+        path: "/deshboard/myproducts",
+        element: <MyProducts />,
       },
     ],
   },

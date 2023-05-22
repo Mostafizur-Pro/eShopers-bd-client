@@ -17,9 +17,12 @@ const ErrorPage = () => {
           you like you can return to our homepage. If the problem persists,
           please send us an email to eshoppers-bd@gmail.com
         </p>
-        <button className="btn btn-outline text-orange-400 font-bold mt-10">
-          Continue Shopping ...
-        </button>
+
+        <Link to="/">
+          <button className="btn btn-outline text-orange-400 font-bold mt-10">
+            Continue Shopping ...
+          </button>
+        </Link>
       </div>
     </div>
   );
