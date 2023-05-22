@@ -91,7 +91,7 @@ const Navber = () => {
         <Link to="/contact">Contact</Link>
       </li>
       <li>
-        <Link to="/deshboard/admin">Dashboard</Link>
+        <Link to="/deshboard/allUser">Dashboard</Link>
       </li>
     </>
   );
