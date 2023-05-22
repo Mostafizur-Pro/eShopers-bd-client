@@ -23,7 +23,7 @@ const Deshboard = () => {
               <Link to="/deshboard/allUser">All User</Link>
             </li>
             <li>
-              <Link to="/dashboard/addproducts">Add a Products</Link>
+              <Link to="/deshboard/addproducts">Add a Products</Link>
             </li>
             <li>
               <Link to="/dashboard/myproducts">My Products</Link>
