@@ -8,9 +8,7 @@ const MyProducts = () => {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://b612-used-products-resale-server-side-mostafizur-pro.vercel.app/productAll"
-    )
+    fetch("http://localhost:5000/productAll")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -33,15 +31,12 @@ const MyProducts = () => {
 
   const handleDelete = (product) => {
     console.log("delete");
-    fetch(
-      `https://b612-used-products-resale-server-side-mostafizur-pro.vercel.app/productAll/${product._id}`,
-      {
-        method: "DELETE",
-        headers: {
-          authorization: `bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }
-    )
+    fetch(`http://localhost:5000/${product._id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         // console.log("DELETE DATA", data);
@@ -55,16 +50,13 @@ const MyProducts = () => {
   };
 
   const handleAdvertisement = (product) => {
-    fetch(
-      "https://b612-used-products-resale-server-side-mostafizur-pro.vercel.app/advertisement",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(product),
-      }
-    )
+    fetch("http://localhost:5000/advertisement", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -84,7 +76,7 @@ const MyProducts = () => {
                 <th>Image</th>
 
                 <th>Title</th>
-                <th>Condition</th>
+                <th>Category</th>
                 <th>Price</th>
                 <th>Available</th>
                 <th>Advertisement</th>
@@ -98,14 +90,14 @@ const MyProducts = () => {
                     <th>
                       <img
                         className="rounded-xl w-24"
-                        src={product.image_url}
+                        src={product.image}
                         alt=""
                       ></img>
                     </th>
                     <td>
                       {product.title} <br /> {product.sellerEmail}
                     </td>
-                    <td>{product.condition}</td>
+                    <td>{product.category}</td>
                     <td>{product.resalePrice}</td>
 
                     <td>unsold</td>

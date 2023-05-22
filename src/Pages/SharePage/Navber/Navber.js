@@ -59,7 +59,7 @@ const Navber = () => {
           <div className="flex w-40   p-2 bg-white z-20">
             {shopLists.map((shoplist) => (
               <li key={shoplist._id}>
-                <Link to={`/collections/${shoplist?.title}`}>
+                <Link to={`/products/${shoplist?.title}`}>
                   <div className="card bg-base-100  shadow-xl ">
                     <figure>
                       <img
