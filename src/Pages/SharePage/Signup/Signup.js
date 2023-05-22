@@ -7,7 +7,7 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Signup = () => {
   const [createdUserEmail, setCreatedUserEmail] = useState("");
-  const { createUser, updateUser } = useContext(AuthContext);
+  // const { createUser, updateUser } = useContext(AuthContext);
   const imageHostKey = "07612646d9dabf5692e244b6b0ee5a6e";
   const navigate = useNavigate();
 
@@ -19,13 +19,13 @@ const Signup = () => {
 
   const handleSignUp = (data) => {
     createImage(data);
-    createUser(data.email, data.password)
-      .then((result) => {
-        const user = result.user;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // createUser(data.email, data.password)
+    // .then((result) => {
+    //   const user = result.user;
+    // })
+    // .catch((error) => {
+    //   console.log(error);
+    // });
   };
 
   const createImage = (data) => {
@@ -61,9 +61,9 @@ const Signup = () => {
       });
   };
   const updateUserProfile = (userInfofirebase) => {
-    updateUser(userInfofirebase)
-      .then(() => {})
-      .catch((err) => console.log(err));
+    // updateUser(userInfofirebase)
+    // .then(() => {})
+    // .catch((err) => console.log(err));
   };
 
   const saveUser = (userInfo) => {
