@@ -3,6 +3,7 @@ import backgroundImg from "../../../assete/SliderBanner/img03.jpg";
 import img02 from "../../../assete/SliderBanner/img02.png";
 import img04 from "../../../assete/SliderBanner/img04.png";
 import img05 from "../../../assete/SliderBanner/img05.png";
+import { Zoom } from "react-reveal";
 
 const Sliderbanner = () => {
   return (
@@ -16,18 +17,20 @@ const Sliderbanner = () => {
             }}
           >
             <div className="flex justify-around items-center w-full">
-              <div className=" text-left ml-20">
-                <h2 className=" text-5xl">Spray</h2>
-                <h2 className=" text-5xl">Moisturizing</h2>
-                <p className="text-lg mt-5">
-                  Unique as the coffe beans is intended for this little scoop
-                  will make your morning ritual a special
-                </p>
+              <Zoom>
+                <div className=" text-left ml-20">
+                  <h2 className=" text-5xl">Spray</h2>
+                  <h2 className=" text-5xl">Moisturizing</h2>
+                  <p className="text-lg mt-5">
+                    Unique as the coffe beans is intended for this little scoop
+                    will make your morning ritual a special
+                  </p>
 
-                <button className="btn btn-outline rounded-none mt-5 ">
-                  DISCOVER NOW
-                </button>
-              </div>
+                  <button className="btn btn-outline rounded-none mt-5 ">
+                    DISCOVER NOW
+                  </button>
+                </div>
+              </Zoom>
               <figure>
                 <img className="w-full" src={img05} alt="banner" />
               </figure>
@@ -50,18 +53,20 @@ const Sliderbanner = () => {
             }}
           >
             <div className="flex justify-around items-center w-full">
-            <div className=" text-left ml-20">
-                <h2 className=" text-5xl">Skin</h2>
-                <h2 className=" text-5xl">Anti-aging</h2>
-                <p className="text-lg mt-5">
-                  Unique as the coffe beans is intended for this little scoop
-                  will make your morning ritual a special
-                </p>
+              <Zoom>
+                <div className=" text-left ml-20">
+                  <h2 className=" text-5xl">Skin</h2>
+                  <h2 className=" text-5xl">Anti-aging</h2>
+                  <p className="text-lg mt-5">
+                    Unique as the coffe beans is intended for this little scoop
+                    will make your morning ritual a special
+                  </p>
 
-                <button className="btn btn-outline rounded-none mt-5 ">
-                  DISCOVER NOW
-                </button>
-              </div>
+                  <button className="btn btn-outline rounded-none mt-5 ">
+                    DISCOVER NOW
+                  </button>
+                </div>
+              </Zoom>
               <figure>
                 <img className="w-full" src={img02} alt="banner" />
               </figure>
@@ -85,18 +90,20 @@ const Sliderbanner = () => {
             }}
           >
             <div className="flex justify-around items-center w-full">
-            <div className=" text-left ml-20">
-                <h2 className=" text-5xl">Skin</h2>
-                <h2 className=" text-5xl">Lightening cream</h2>
-                <p className="text-lg mt-5">
-                  Unique as the coffe beans is intended for this little scoop
-                  will make your morning ritual a special
-                </p>
+              <Zoom>
+                <div className=" text-left ml-20">
+                  <h2 className=" text-5xl">Skin</h2>
+                  <h2 className=" text-5xl">Lightening cream</h2>
+                  <p className="text-lg mt-5">
+                    Unique as the coffe beans is intended for this little scoop
+                    will make your morning ritual a special
+                  </p>
 
-                <button className="btn btn-outline rounded-none mt-5 ">
-                  DISCOVER NOW
-                </button>
-              </div>
+                  <button className="btn btn-outline rounded-none mt-5 ">
+                    DISCOVER NOW
+                  </button>
+                </div>
+              </Zoom>
               <figure>
                 <img className="w-full" src={img04} alt="banner" />
               </figure>
