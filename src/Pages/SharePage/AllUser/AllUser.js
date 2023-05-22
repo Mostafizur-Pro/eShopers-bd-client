@@ -8,7 +8,7 @@ const AllUser = () => {
   const [sellers, setSellers] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/users").then((data) => {
+    axios.get("https://e-shoppers-bd.vercel.app/users").then((data) => {
       const users = data.data;
 
       setSellers(users);
@@ -16,7 +16,7 @@ const AllUser = () => {
   });
 
   const handleMakeAdmin = (id) => {
-    fetch(`http://localhost:5000/users/admin/${id}`, {
+    fetch(`https://e-shoppers-bd.vercel.app/users/admin/${id}`, {
       method: "PUT",
       // headers: {
       //   authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -30,7 +30,7 @@ const AllUser = () => {
 
   const handleDelete = (product) => {
     console.log("delete");
-    fetch(`http://localhost:5000/users/${product._id}`, {
+    fetch(`https://e-shoppers-bd.vercel.app/users/${product._id}`, {
       method: "DELETE",
       // headers: {
       //   "content-type": "application/json",

@@ -56,7 +56,9 @@ const router = createBrowserRouter([
         path: "/products/:category",
         element: <ProductsBody />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products?category=${params.category}`),
+          fetch(
+            `https://e-shoppers-bd.vercel.app/products?category=${params.category}`
+          ),
       },
     ],
   },

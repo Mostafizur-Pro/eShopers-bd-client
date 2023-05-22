@@ -17,18 +17,13 @@ const Login = () => {
   };
 
   useEffect(() => {
-    fetch(
-      `http://localhost:5000/users`
-    )
+    fetch(`https://e-shoppers-bd.vercel.app/users`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
         setUsers(data);
       });
   }, []);
-
-
-
 
   return (
     <div>
@@ -42,7 +37,7 @@ const Login = () => {
             />
           </div>
           {/* sdfsdfskdfjskl */}
-          <h2>{users.length}</h2> 
+          <h2>{users.length}</h2>
           <div className="card flex-shrink-0 h-4/6 w-full max-w-sm ">
             <div className="  m-5">
               <div className="w-6/12">

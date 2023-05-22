@@ -59,7 +59,7 @@ const AddProducts = () => {
 
   const saveUser = (addProduct) => {
     console.log("saveuser", addProduct);
-    fetch("http://localhost:5000/addProduct", {
+    fetch("https://e-shoppers-bd.vercel.app/addProduct", {
       method: "POST",
       headers: {
         "content-type": "application/json",

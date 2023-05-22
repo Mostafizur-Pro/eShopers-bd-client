@@ -5,7 +5,7 @@ import logo from "../../../assete/logo/logo.PNG";
 const Navber = () => {
   const [shopLists, setShopList] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/categories")
+    fetch("https://e-shoppers-bd.vercel.app/categories")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
