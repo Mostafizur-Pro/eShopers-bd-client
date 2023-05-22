@@ -18,11 +18,10 @@ const Navber = () => {
       <li>
         <Link to="/">Home</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to="/products">Products</Link>
-      </li>
+      </li> */}
       <li>
-        
         <a>
           Shop
           <svg
@@ -38,9 +37,7 @@ const Navber = () => {
         <ul className="p-2 bg-white  z-40  ">
           {shopLists.map((shoplist) => (
             <li key={shoplist._id}>
-              <Link to={`/collections/${shoplist?.title}`}>
-                {shoplist?.name}
-              </Link>
+              <Link to={`/products/${shoplist?.title}`}>{shoplist?.name}</Link>
             </li>
           ))}
         </ul>
@@ -61,7 +58,7 @@ const Navber = () => {
         <ul className="   ">
           <div className="flex w-40   p-2 bg-white z-20">
             {shopLists.map((shoplist) => (
-               <li key={shoplist._id}>
+              <li key={shoplist._id}>
                 <Link to={`/collections/${shoplist?.title}`}>
                   <div className="card bg-base-100  shadow-xl ">
                     <figure>

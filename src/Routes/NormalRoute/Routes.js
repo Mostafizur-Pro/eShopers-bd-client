@@ -8,6 +8,7 @@ import Login from "../../Pages/SharePage/Login/Login";
 import Signup from "../../Pages/SharePage/Signup/Signup";
 import Products from "../../Pages/ProductsPage/Products/Products";
 import Blog from "../../Pages/BlogPage/Blog/Blog";
+import ProductsBody from "../../Pages/ProductsPage/ProductsBody/ProductsBody";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,12 @@ const router = createBrowserRouter([
       {
         path: "/products",
         element: <Products />,
+      },
+      {
+        path: "/products/:category",
+        element: <ProductsBody />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products?category=${params.category}`),
       },
     ],
   },
