@@ -9,6 +9,9 @@ import Signup from "../../Pages/SharePage/Signup/Signup";
 import Products from "../../Pages/ProductsPage/Products/Products";
 import Blog from "../../Pages/BlogPage/Blog/Blog";
 import ProductsBody from "../../Pages/ProductsPage/ProductsBody/ProductsBody";
+import Deshboard from "../../Layout/Deshboard/Deshboard";
+import AdminDeshboard from "../../Pages/SharePage/AdminDeshboard/AdminDeshboard";
+import AllUser from "../../Pages/SharePage/AllUser/AllUser";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +55,20 @@ const router = createBrowserRouter([
         element: <ProductsBody />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/products?category=${params.category}`),
+      },
+    ],
+  },
+  {
+    path: "/deshboard",
+    element: <Deshboard />,
+    children: [
+      {
+        path: "/deshboard/admin",
+        element: <AdminDeshboard />,
+      },
+      {
+        path: "/deshboard/allUser",
+        element: <AllUser />,
       },
     ],
   },

@@ -90,6 +90,9 @@ const Navber = () => {
       <li>
         <Link to="/contact">Contact</Link>
       </li>
+      <li>
+        <Link to="/deshboard/admin">Dashboard</Link>
+      </li>
     </>
   );
 
