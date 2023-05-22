@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import signin from "../../../assete/signup/signup.png";
 import logo from "../../../assete/logo/logo.PNG";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Signup = () => {
   const [createdUserEmail, setCreatedUserEmail] = useState("");
+  const { createUser, updateUser } = useContext(AuthContext);
   const imageHostKey = "07612646d9dabf5692e244b6b0ee5a6e";
-const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   const {
     register,
@@ -17,8 +18,15 @@ const navigate = useNavigate()
   } = useForm();
 
   const handleSignUp = (data) => {
-     createImage(data);
-    };
+    createImage(data);
+    createUser(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const createImage = (data) => {
     const image = data.image[0];
@@ -37,34 +45,40 @@ const navigate = useNavigate()
             email: data.email,
             number: data.number,
             image: imgData.data.url,
-            userType: 'normalUser',
+            userType: "normalUser",
           };
-        
+
+          const userInfofirebase = {
+            displayName: data.name,
+            photoURL: imgData.data.url,
+          };
+
+          updateUserProfile(userInfofirebase);
 
           saveUser(userInfo);
           // console.log('object', userInfo);
-          
         }
       });
   };
-  
+  const updateUserProfile = (userInfofirebase) => {
+    updateUser(userInfofirebase)
+      .then(() => {})
+      .catch((err) => console.log(err));
+  };
 
   const saveUser = (userInfo) => {
-    fetch(
-      "http://localhost:5000/users",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(userInfo),
-      }
-    )
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userInfo),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log("Server Save", data);
         setCreatedUserEmail(userInfo.email);
-        navigate('/login')
+        navigate("/login");
       });
   };
   return (
@@ -161,7 +175,6 @@ const navigate = useNavigate()
                   <p className="text-red-600">{errors.number?.message}</p>
                 )}
               </div>
-            
 
               <div>
                 <label className="label">
