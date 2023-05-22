@@ -5,10 +5,10 @@ import logo from "../../../assete/logo/logo.PNG";
 const Navber = () => {
   const [shopLists, setShopList] = useState([]);
   useEffect(() => {
-    fetch("shoplist.json")
+    fetch("http://localhost:5000/categories")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setShopList(data);
       });
   }, []);
@@ -37,7 +37,7 @@ const Navber = () => {
         </a>
         <ul className="p-2 bg-white  z-40  ">
           {shopLists.map((shoplist) => (
-            <li>
+            <li key={shoplist._id}>
               <Link to={`/collections/${shoplist?.title}`}>
                 {shoplist?.name}
               </Link>
@@ -61,7 +61,7 @@ const Navber = () => {
         <ul className="   ">
           <div className="flex w-40   p-2 bg-white z-20">
             {shopLists.map((shoplist) => (
-              <li>
+               <li key={shoplist._id}>
                 <Link to={`/collections/${shoplist?.title}`}>
                   <div className="card bg-base-100  shadow-xl ">
                     <figure>

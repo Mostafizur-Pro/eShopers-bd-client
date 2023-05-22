@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import signin from "../../../assete/signup/signup.png";
 import logo from "../../../assete/logo/logo.PNG";
 
 const Signup = () => {
+  const [createdUserEmail, setCreatedUserEmail] = useState("");
+  const imageHostKey = "07612646d9dabf5692e244b6b0ee5a6e";
   const {
     register,
     handleSubmit,
@@ -12,7 +14,8 @@ const Signup = () => {
   } = useForm();
 
   const handleSignUp = (data) => {
-    // createImage(data);
+    // console.log(data);
+    createImage(data);
     // createUser(data.email, data.password)
     //   .then((result) => {
     //     const user = result.user;
@@ -21,7 +24,57 @@ const Signup = () => {
     //     console.log(error);
     //   });
   };
+  const createImage = (data) => {
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgData) => {
+        if (imgData.success) {
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+            number: data.number,
+            image: imgData.data.url,
+            userType: 'normalUser',
+          };
+          // const userInfofirebase = {
+          //   displayName: data.name,
+          //   photoURL: imgData.data.url,
+          // };
 
+          // updateUserProfile(userInfofirebase);
+
+          saveUser(userInfo);
+          // console.log('object', userInfo);
+          
+        }
+      });
+  };
+  
+  // fetch("http://localhost:5000/categories")
+  const saveUser = (userInfo) => {
+    fetch(
+      "http://localhost:5000/users",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(userInfo),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Server Save", data);
+        setCreatedUserEmail(userInfo.email);
+      });
+  };
   return (
     <div>
       <div className="hero  ">
@@ -116,28 +169,7 @@ const Signup = () => {
                   <p className="text-red-600">{errors.number?.message}</p>
                 )}
               </div>
-              <div className="form-control w-full max-w-xs">
-                <label className="label">
-                  <span className="label"></span>
-                  {/* <span className="label-alt">Alt label</span> */}
-                </label>
-
-                <select
-                  {...register("usertype", {
-                    required: "Must be selected user",
-                  })}
-                  className="select select-bordered"
-                >
-                  <option hidden selected>
-                    Selected one
-                  </option>
-                  <option>Buyer</option>
-                  <option>Seller</option>
-                </select>
-                {errors.usertype && (
-                  <p className="text-red-600">{errors.usertype?.message}</p>
-                )}
-              </div>
+            
 
               <div>
                 <label className="label">
