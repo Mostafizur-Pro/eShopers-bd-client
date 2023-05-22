@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import loginAnimation from "../../../assete/Login/login.gif";
 import logo from "../../../assete/logo/logo.PNG";
 
 const Login = () => {
+  const [users, setUsers] = useState([]);
   const {
     register,
     formState: { errors },
@@ -14,6 +15,21 @@ const Login = () => {
   const handleGoogleSignIn = (event) => {
     event.preventDefault();
   };
+
+  useEffect(() => {
+    fetch(
+      `http://localhost:5000/users`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        setUsers(data);
+      });
+  }, []);
+
+
+
+
   return (
     <div>
       <div className="hero min-h-screen ">
@@ -25,6 +41,8 @@ const Login = () => {
               className="max-w-sm h-max rounded-lg "
             />
           </div>
+          {/* sdfsdfskdfjskl */}
+          <h2>{users.length}</h2> 
           <div className="card flex-shrink-0 h-4/6 w-full max-w-sm ">
             <div className="  m-5">
               <div className="w-6/12">
