@@ -1,2 +1,11 @@
-https://velaflash.myshopify.com/?_ab=0&_fd=0&_sc=1
-https://velaflash.myshopify.com/
+## Live Link
+
+https://eshoppers-bd.netlify.app/
+
+## Gilhub Link client site
+
+https://github.com/Mostafizur-Pro/eShopers-bd-client.git
+
+## Gilhub Link server site
+
+https://github.com/Mostafizur-Pro/eShoppers-bd-server.git

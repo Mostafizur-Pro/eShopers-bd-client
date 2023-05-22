@@ -1,12 +1,12 @@
 import React from "react";
-import aboutImg from "../../../assete/aboutpage/about.avif";
+import aboutImg from "../../../assete/aboutpage/about.jpg";
 
 const About = () => {
   return (
     <div>
       <div className="grid grid-cols-2 gap-10 ">
         <div className="grid-cols-1">
-          <img src={aboutImg} alt="Album" />
+          <img className="h-screen" src={aboutImg} alt="Album" />
         </div>
         <div className=" grid-cols-1 mt-20">
           <p className="font-semibold text-xl">I'm a Desinger of GoTo Store</p>
