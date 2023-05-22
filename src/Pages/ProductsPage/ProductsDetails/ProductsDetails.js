@@ -5,13 +5,12 @@ import { FaEye, FaShoppingCart } from "react-icons/fa";
 import ProductsModels from "./ProductsModels";
 
 const ProductsDetails = ({ courseItem }) => {
-  // const { productId, setProductId } = useState();
+  const [productId, setProductId] = useState(0);
+
   const handleId = (item) => {
-    // setProductId(item);
-    // console.log("item", item);
+    setProductId(item);
   };
   return (
-    // <div className="grid grid-cols-3 gap-5">
     <div className="grid grid-cols-3 gap-5">
       {courseItem.map((item) => (
         <>
@@ -41,7 +40,7 @@ const ProductsDetails = ({ courseItem }) => {
                 <div className="flex gap-3">
                   <label
                     htmlFor="my-modal-4"
-                    onClick={() => handleId(item)}
+                    onClick={() => handleId(item._id)}
                     className="btn text-3xl"
                   >
                     <FaEye />
@@ -53,29 +52,40 @@ const ProductsDetails = ({ courseItem }) => {
               </h1>
             </div>
             {/* model */}
-            <div>
-              <input type="checkbox" id="my-modal-4" className="modal-toggle" />
-              <label htmlFor="my-modal-4" className="modal cursor-pointer">
-                <label className="modal-box relative" htmlFor="">
-                  <img className="w-full " src={item.image} alt="Drink" />
-                  <h3 className="text-lg font-bold">{item.title}</h3>
-                  <p className="py-4">{item.product_details}</p>
-                  <div className="flex text-left ">
-                    <p className="text-orange-400 text-xl font-bold">
-                      Price: ${item.resalePrice}
-                    </p>
-                    <p className="text-gray-400 ml-5 line-through ">
-                      ${item.originalPrice}
-                    </p>
-                  </div>
-                </label>
-              </label>
-            </div>
-
-            {/* <ProductsModels item={item} productId={productId} /> */}
           </div>
         </>
       ))}
+
+      <div>
+        {courseItem.map((item) => (
+          <>
+            {item._id === productId && (
+              <>
+                <input
+                  type="checkbox"
+                  id="my-modal-4"
+                  className="modal-toggle"
+                />
+                <label htmlFor="my-modal-4" className="modal cursor-pointer">
+                  <label className="modal-box relative" htmlFor="">
+                    <img className="w-full " src={item.image} alt="Drink" />
+                    <h3 className="text-lg font-bold">{item.title}</h3>
+                    <p className="py-4">{item.product_details}</p>
+                    <div className="flex text-left ">
+                      <p className="text-orange-400 text-xl font-bold">
+                        Price: ${item.resalePrice}
+                      </p>
+                      <p className="text-gray-400 ml-5 line-through ">
+                        ${item.originalPrice}
+                      </p>
+                    </div>
+                  </label>
+                </label>
+              </>
+            )}
+          </>
+        ))}
+      </div>
     </div>
   );
 };
