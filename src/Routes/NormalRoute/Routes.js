@@ -14,6 +14,7 @@ import AdminDeshboard from "../../Pages/SharePage/AdminDeshboard/AdminDeshboard"
 import AllUser from "../../Pages/SharePage/AllUser/AllUser";
 import AddProducts from "../../Pages/SharePage/AddProducts/AddProducts";
 import MyProducts from "../../Pages/SharePage/MyProducts/MyProducts";
+import Profile from "../../Pages/SharePage/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/products",
         element: <Products />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
       {
         path: "/products/:category",
