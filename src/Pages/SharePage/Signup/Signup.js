@@ -4,11 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 import signin from "../../../assete/signup/signup.png";
 import logo from "../../../assete/logo/logo.PNG";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import useTitle from "../../../hooks/useTitle/useTitle";
 
 const Signup = () => {
-  const [createdUserEmail, setCreatedUserEmail] = useState("");
-  // const { createUser, updateUser } = useContext(AuthContext);
+  useTitle("SignUp");
+  const { createUser, updateUser } = useContext(AuthContext);
   const imageHostKey = "07612646d9dabf5692e244b6b0ee5a6e";
+  const [createdUserEmail, setCreatedUserEmail] = useState("");
   const navigate = useNavigate();
 
   const {
@@ -19,13 +21,14 @@ const Signup = () => {
 
   const handleSignUp = (data) => {
     createImage(data);
-    // createUser(data.email, data.password)
-    // .then((result) => {
-    //   const user = result.user;
-    // })
-    // .catch((error) => {
-    //   console.log(error);
-    // });
+
+    createUser(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const createImage = (data) => {
@@ -61,9 +64,9 @@ const Signup = () => {
       });
   };
   const updateUserProfile = (userInfofirebase) => {
-    // updateUser(userInfofirebase)
-    // .then(() => {})
-    // .catch((err) => console.log(err));
+    updateUser(userInfofirebase)
+      .then(() => {})
+      .catch((err) => console.log(err));
   };
 
   const saveUser = (userInfo) => {
@@ -76,9 +79,9 @@ const Signup = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Server Save", data);
+        // console.log("Server Save", data);
         setCreatedUserEmail(userInfo.email);
-        navigate("/login");
+        navigate("/");
       });
   };
   return (

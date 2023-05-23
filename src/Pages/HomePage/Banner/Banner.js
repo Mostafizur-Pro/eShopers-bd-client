@@ -28,8 +28,7 @@ const Banner = () => {
             </div>
           </div>
         </Fade>
-
-        <Fade right>
+        <Fade top>
           <div className="col-span-1">
             <div
               className="hero min-h-full"
@@ -49,7 +48,7 @@ const Banner = () => {
             </div>
           </div>
         </Fade>
-        <Fade button>
+        <Fade right>
           <div className="col-span-1">
             <div
               className="hero min-h-full"

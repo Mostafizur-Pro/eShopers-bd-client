@@ -5,13 +5,13 @@ import axios from "axios";
 
 const AllUser = () => {
   useTitle("AllSeller");
-  const [sellers, setSellers] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     axios.get("https://e-shoppers-bd.vercel.app/users").then((data) => {
       const users = data.data;
 
-      setSellers(users);
+      setUsers(users);
     });
   });
 
@@ -39,10 +39,10 @@ const AllUser = () => {
       .then((res) => res.json())
       .then((data) => {
         alert("Are you DELETE this product");
-        const remaining = sellers.filter(
+        const remaining = users.filter(
           (products) => products._id !== product._id
         );
-        setSellers(remaining);
+        setUsers(remaining);
       });
   };
   return (
@@ -62,24 +62,24 @@ const AllUser = () => {
               </tr>
             </thead>
             <tbody>
-              {sellers.map((seller, i) => (
+              {users.map((user, i) => (
                 <>
-                  {seller.userType === "normalUser" && (
-                    <tr key={seller._id}>
+                  {user.userType === "normalUser" && (
+                    <tr key={user._id}>
                       <th>
                         <div className="w-24 rounded-full">
-                          <img src={seller.image} alt="" />
+                          <img src={user.image} alt="" />
                         </div>
                       </th>
-                      <td>{seller.name}</td>
-                      <td>{seller.email}</td>
+                      <td>{user.name}</td>
+                      <td>{user.email}</td>
 
-                      <td>{seller.userType}</td>
+                      <td>{user.userType}</td>
                       <td>Make Admin</td>
 
                       <td>
                         <button
-                          onClick={() => handleDelete(seller)}
+                          onClick={() => handleDelete(user)}
                           className="btn btn-xs btn-danger"
                         >
                           Delete

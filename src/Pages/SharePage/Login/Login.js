@@ -1,29 +1,54 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginAnimation from "../../../assete/Login/login.gif";
 import logo from "../../../assete/logo/logo.PNG";
+import { AuthContext } from "../../../contexts/AuthProvider";
+import useTitle from "../../../hooks/useTitle/useTitle";
 
 const Login = () => {
-  const [users, setUsers] = useState([]);
+  useTitle("Login");
+  // const [users, setUsers] = useState([]);
+
+  const { signIn, createGoogle } = useContext(AuthContext);
+  const [loginUserEmail, setLoginUserEmail] = useState("");
+  const [loginError, setLoginError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const handleLogin = (data) => {};
+
+  const from = location.state?.from?.pathname || "/";
+  const handleLogin = (data) => {
+    console.log("data", data);
+
+    signIn(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+        // setLoginUserEmail(user.email);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        // setLoginError(error.message);
+      });
+  };
+
   const handleGoogleSignIn = (event) => {
     event.preventDefault();
   };
 
-  useEffect(() => {
-    fetch(`https://e-shoppers-bd.vercel.app/users`)
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
-        setUsers(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(`https://e-shoppers-bd.vercel.app/users`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       // console.log(data);
+  //       setUsers(data);
+  //     });
+  // }, []);
 
   return (
     <div>
@@ -37,7 +62,7 @@ const Login = () => {
             />
           </div>
           {/* sdfsdfskdfjskl */}
-          <h2>{users.length}</h2>
+          {/* <h2>{users.length}</h2> */}
           <div className="card flex-shrink-0 h-4/6 w-full max-w-sm ">
             <div className="  m-5">
               <div className="w-6/12">
