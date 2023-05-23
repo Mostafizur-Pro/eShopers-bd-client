@@ -7,6 +7,7 @@ import image05 from "../../../assete/TopSelling/05.webp";
 import image06 from "../../../assete/TopSelling/06.webp";
 import image07 from "../../../assete/TopSelling/07.webp";
 import image08 from "../../../assete/TopSelling/08.webp";
+import { Link } from "react-router-dom";
 
 const TopSellingProduct = () => {
   return (
@@ -77,9 +78,11 @@ const TopSellingProduct = () => {
         </div>
       </div>
       <div className="text-center my-10">
-        <button className="btn btn-outline rounded-none capitalize text-xl text-orange-400">
-          See All Products
-        </button>
+        <Link to="/products/spa">
+          <button className="btn btn-outline rounded-none capitalize text-xl text-orange-400">
+            See All Products
+          </button>
+        </Link>
       </div>
     </div>
   );

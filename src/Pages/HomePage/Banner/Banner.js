@@ -14,11 +14,32 @@ const Banner = () => {
               className="hero min-h-full"
               style={{ backgroundImage: `url(${images1})` }}
             >
+              <div className="hero-overlay bg-opacity-60"></div>
+              <div className="hero-content  text-neutral-content">
+                <div className="max-w-md text-white my-16">
+                  <p className="">NEW ARRIVALS</p>
+                  <h1 className="mb-5 text-3xl font-bold">TOTAL BODY WASH</h1>
+                  <p className="mb-5">Top Quality Item Skincare</p>
+                  <button className="btn btn-outline text-white rounded-none">
+                    SHOP NOW
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Fade>
+
+        <Fade right>
+          <div className="col-span-1">
+            <div
+              className="hero min-h-full"
+              style={{ backgroundImage: `url(${images3})` }}
+            >
               <div className="hero-overlay bg-opacity-10"></div>
               <div className="hero-content  text-neutral-content">
                 <div className="max-w-md text-black my-16">
-                  <p className="">NEW ARRIVALS</p>
-                  <h1 className="mb-5 text-3xl font-bold">TOTAL BODY WASH</h1>
+                  <p className="">BESTSELLER ITEM</p>
+                  <h1 className="mb-5 text-3xl font-bold">FACIAL CREAM</h1>
                   <p className="mb-5">Top Quality Item Skincare</p>
                   <button className="btn btn-outline rounded-none">
                     SHOP NOW
@@ -43,26 +64,6 @@ const Banner = () => {
                     Accusamus et iusto odgnissimos ducimusblanditiis praesentium{" "}
                   </p>
                   <button className="btn btn-outline rounded-none text-white">
-                    SHOP NOW
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Fade>
-        <Fade right>
-          <div className="col-span-1">
-            <div
-              className="hero min-h-full"
-              style={{ backgroundImage: `url(${images3})` }}
-            >
-              <div className="hero-overlay bg-opacity-10"></div>
-              <div className="hero-content  text-neutral-content">
-                <div className="max-w-md text-black my-16">
-                  <p className="">BESTSELLER ITEM</p>
-                  <h1 className="mb-5 text-3xl font-bold">FACIAL CREAM</h1>
-                  <p className="mb-5">Top Quality Item Skincare</p>
-                  <button className="btn btn-outline rounded-none">
                     SHOP NOW
                   </button>
                 </div>

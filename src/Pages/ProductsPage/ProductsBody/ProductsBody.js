@@ -14,12 +14,6 @@ const ProductsBody = () => {
       </div>
       <div className="col-span-2">
         <ProductsDetails courseItem={categories}></ProductsDetails>
-        {/* {categories.map((category) => (
-          <ProductsDetails
-            key={category._id}
-            courseItem={category}
-          ></ProductsDetails>
-        ))} */}
       </div>
     </div>
   );

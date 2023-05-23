@@ -3,6 +3,7 @@ import image01 from "../../../assete/OurBlogs/01.webp";
 import image02 from "../../../assete/OurBlogs/02.webp";
 import image03 from "../../../assete/OurBlogs/03.webp";
 import Fade from "react-reveal/Fade";
+import { Link } from "react-router-dom";
 
 const OurBlogs = () => {
   return (
@@ -33,9 +34,11 @@ const OurBlogs = () => {
                   by the readable content of a page when looking at its layout.
                   The point of using Lorem Ipsum is that it -
                 </p>
-                <p className="text-orange-500 font-bold underline mt-5">
-                  Read more
-                </p>
+                <Link to="/blogs">
+                  <p className="text-orange-500 font-bold underline mt-5">
+                    Read more
+                  </p>
+                </Link>
               </div>
             </div>
           </Fade>
@@ -57,9 +60,11 @@ const OurBlogs = () => {
                   by the readable content of a page when looking at its layout.
                   The point of using Lorem Ipsum is that it -
                 </p>
-                <p className="text-orange-500 font-bold underline mt-5">
-                  Read more
-                </p>
+                <Link to="/blogs">
+                  <p className="text-orange-500 font-bold underline mt-5">
+                    Read more
+                  </p>
+                </Link>
               </div>
             </div>
           </Fade>
@@ -81,9 +86,11 @@ const OurBlogs = () => {
                   by the readable content of a page when looking at its layout.
                   The point of using Lorem Ipsum is that it -
                 </p>
-                <p className="text-orange-500 font-bold underline mt-5">
-                  Read more
-                </p>
+                <Link to="/blogs">
+                  <p className="text-orange-500 font-bold underline mt-5">
+                    Read more
+                  </p>
+                </Link>
               </div>
             </div>
           </Fade>
