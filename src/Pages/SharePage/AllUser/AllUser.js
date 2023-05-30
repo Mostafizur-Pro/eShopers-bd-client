@@ -28,9 +28,9 @@ const AllUser = () => {
       });
   };
 
-  const handleDelete = (product) => {
-    console.log("delete");
-    fetch(`https://e-shoppers-bd.vercel.app/users/${product._id}`, {
+  const handleDelete = (user) => {
+    console.log("delete", user);
+    fetch(`https://e-shoppers-bd.vercel.app/users/${user._id}`, {
       method: "DELETE",
       // headers: {
       //   "content-type": "application/json",
@@ -39,9 +39,7 @@ const AllUser = () => {
       .then((res) => res.json())
       .then((data) => {
         alert("Are you DELETE this product");
-        const remaining = users.filter(
-          (products) => products._id !== product._id
-        );
+        const remaining = users.filter((users) => users._id !== user._id);
         setUsers(remaining);
       });
   };
