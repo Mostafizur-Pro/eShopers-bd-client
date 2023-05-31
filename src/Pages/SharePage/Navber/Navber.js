@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 import logo from "../../../assete/logo/logo.PNG";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import axios from "axios";
+import AllLoginUser from "../AllLoginUser/AllLoginUser";
 
 const Navber = () => {
   const [shopLists, setShopList] = useState([]);
-  const { user, logOut, setTheme, theme } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const [users, setUsers] = useState([]);
+  const [sellerInfo] = AllLoginUser(user?.email);
+
+  // console.log("sellerInfo", sellerInfo);
 
   useEffect(() => {
     axios.get("https://e-shoppers-bd.vercel.app/users").then((data) => {
@@ -108,15 +112,29 @@ const Navber = () => {
         <Link to="/contact">Contact</Link>
       </li>
       {user?.email ? (
-        <li>
-          <Link to="/deshboard/allUser">Dashboard</Link>
-        </li>
+        <>
+          {sellerInfo?.userType === "admin" && (
+            <>
+              <li>
+                <Link to="/deshboard/allUser">Dashboard</Link>
+              </li>
+            </>
+          )}
+          {!sellerInfo?.userType === "admin" && (
+            <>
+              <li>
+                <Link to="/deshboard/addproducts">Dashboard</Link>
+              </li>
+            </>
+          )}
+        </>
       ) : (
-        <></>
+        <>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </>
       )}
-      {/* <li>
-        <Link to="/deshboard/allUser">Dashboard</Link>
-      </li> */}
     </>
   );
 
@@ -167,11 +185,15 @@ const Navber = () => {
                   <div className="w-10 rounded-full">
                     {users.map((mongodbUser) => (
                       <>
-                        {mongodbUser.email === user.email ? (
-                          <>hi</>
+                        {mongodbUser.email === user?.email ? (
+                          <img
+                            alt="error"
+                            src="https://img.favpng.com/1/20/21/businessperson-computer-icons-avatar-png-favpng-B8ky3XmC82yLn1QkdvZ17t1vC.jpg"
+                          />
                         ) : (
-                          <img src={mongodbUser.image} />
-                          // <p>{user.email}</p>
+                          <img alt="profilePic" src={user.photoURL} />
+                          // // <p>{user.email}</p>
+                          // <>{user.email}</>
                         )}
                       </>
                     ))}

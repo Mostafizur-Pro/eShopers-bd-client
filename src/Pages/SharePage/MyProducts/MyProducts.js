@@ -15,7 +15,7 @@ const MyProducts = () => {
         setAllProducts(data);
       });
   }, []);
-  console.log("allProducts", allProducts);
+  // console.log("allProducts", allProducts);
   const {
     category,
     product_details,

@@ -2,8 +2,14 @@ import React from "react";
 import Navber from "../../Pages/SharePage/Navber/Navber";
 import { Link, Outlet } from "react-router-dom";
 import Footer from "../../Pages/SharePage/Footer/Footer";
+import { AuthContext } from "../../contexts/AuthProvider";
+import { useContext } from "react";
+import useAdmin from "../../hooks/useAdmin/useAdmin";
 
 const Deshboard = () => {
+  const { user } = useContext(AuthContext);
+  const [isAdmin] = useAdmin(user?.email);
+  // console.log("admin", isAdmin);
   return (
     <div>
       <Navber />
@@ -19,15 +25,29 @@ const Deshboard = () => {
         <div className="drawer-side">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-48 ">
-            <li>
-              <Link to="/deshboard/allUser">All User</Link>
-            </li>
-            <li>
-              <Link to="/deshboard/addproducts">Add a Products</Link>
-            </li>
-            <li>
-              <Link to="/deshboard/myproducts">My Products</Link>
-            </li>
+            {isAdmin && (
+              <>
+                <li>
+                  <Link to="/deshboard/allUser">All User</Link>
+                </li>
+                <li>
+                  <Link to="/deshboard/addproducts">Add a Products</Link>
+                </li>
+                <li>
+                  <Link to="/deshboard/myproducts">My Products</Link>
+                </li>
+              </>
+            )}
+            {!isAdmin && (
+              <>
+                <li>
+                  <Link to="/deshboard/addproducts">Add a Products</Link>
+                </li>
+                <li>
+                  <Link to="/deshboard/myproducts">My Products</Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
