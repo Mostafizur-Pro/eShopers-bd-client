@@ -5,7 +5,9 @@ const AllLoginUser = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`https://e-shoppers-bd.vercel.app/users/${email}`)
+      fetch(
+        `https://e-shoppers-bd-server-dmq5bw2u1-mostafizur-pro.vercel.app/users/${email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           // console.log(data);

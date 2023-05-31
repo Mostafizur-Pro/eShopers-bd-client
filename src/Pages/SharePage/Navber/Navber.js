@@ -11,18 +11,24 @@ const Navber = () => {
   const [users, setUsers] = useState([]);
   const [sellerInfo] = AllLoginUser(user?.email);
 
-  // console.log("sellerInfo", sellerInfo);
+  // console.log("sellerInfo", users);
 
   useEffect(() => {
-    axios.get("https://e-shoppers-bd.vercel.app/users").then((data) => {
-      const users = data.data;
+    axios
+      .get(
+        "https://e-shoppers-bd-server-dmq5bw2u1-mostafizur-pro.vercel.app/users"
+      )
+      .then((data) => {
+        const users = data.data;
 
-      setUsers(users);
-    });
+        setUsers(users);
+      });
   });
 
   useEffect(() => {
-    fetch("https://e-shoppers-bd.vercel.app/categories")
+    fetch(
+      "https://e-shoppers-bd-server-dmq5bw2u1-mostafizur-pro.vercel.app/categories"
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -111,30 +117,41 @@ const Navber = () => {
       <li>
         <Link to="/contact">Contact</Link>
       </li>
-      {user?.email ? (
+
+      {users.map((userData) => (
         <>
-          {sellerInfo?.userType === "admin" && (
+          {userData?.email === user?.email ? (
             <>
-              <li>
-                <Link to="/deshboard/allUser">Dashboard</Link>
-              </li>
-            </>
-          )}
-          {!sellerInfo?.userType === "admin" && (
-            <>
-              <li>
-                <Link to="/deshboard/addproducts">Dashboard</Link>
-              </li>
-            </>
-          )}
-        </>
-      ) : (
-        <>
-          <li>
+              {userData?.email ? (
+                <>
+                  {userData?.userType === "admin" && (
+                    <>
+                      <li>
+                        <Link to="/deshboard/allUser">Dashboard</Link>
+                      </li>
+                    </>
+                  )}
+                  {!userData?.userType === "admin" && (
+                    <>
+                      <li>
+                        <Link to="/deshboard/addproducts">Dashboard</Link>
+                      </li>
+                    </>
+                  )}
+                </>
+              ) : (
+                <>
+                  {/* <li>
             <Link to="/login">Login</Link>
-          </li>
+          </li> */}
+                </>
+              )}
+            </>
+          ) : (
+            <></>
+          )}
         </>
-      )}
+      ))}
     </>
   );
 

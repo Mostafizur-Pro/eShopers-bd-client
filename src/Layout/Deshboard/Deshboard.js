@@ -9,7 +9,7 @@ import useAdmin from "../../hooks/useAdmin/useAdmin";
 const Deshboard = () => {
   const { user } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
-  // console.log("admin", isAdmin);
+  console.log("admin", isAdmin);
   return (
     <div>
       <Navber />

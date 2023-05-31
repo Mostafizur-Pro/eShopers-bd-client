@@ -59,13 +59,16 @@ const AddProducts = () => {
 
   const saveUser = (addProduct) => {
     console.log("saveuser", addProduct);
-    fetch("https://e-shoppers-bd.vercel.app/addProduct", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(addProduct),
-    })
+    fetch(
+      "https://e-shoppers-bd-server-dmq5bw2u1-mostafizur-pro.vercel.app/addProduct",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(addProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

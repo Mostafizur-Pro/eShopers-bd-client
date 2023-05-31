@@ -8,7 +8,9 @@ import { Link } from "react-router-dom";
 const ProductsCategories = () => {
   const [shopLists, setShopList] = useState([]);
   useEffect(() => {
-    fetch("https://e-shoppers-bd.vercel.app/categories")
+    fetch(
+      "https://e-shoppers-bd-server-dmq5bw2u1-mostafizur-pro.vercel.app/categories"
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

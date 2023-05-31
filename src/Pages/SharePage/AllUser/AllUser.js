@@ -12,15 +12,19 @@ const AllUser = () => {
   // console.log("user", users);
 
   useEffect(() => {
-    axios.get("https://e-shoppers-bd.vercel.app/users").then((data) => {
-      const users = data.data;
+    axios
+      .get(
+        "https://e-shoppers-bd-server-dmq5bw2u1-mostafizur-pro.vercel.app/users"
+      )
+      .then((data) => {
+        const users = data.data;
 
-      setUsers(users);
-    });
+        setUsers(users);
+      });
   });
 
   // const handleMakeAdmin = (id) => {
-  //   fetch(`https://e-shoppers-bd.vercel.app/users/admin/${id}`, {
+  //   fetch(`https://e-shoppers-bd-server-dmq5bw2u1-mostafizur-pro.vercel.app/users/admin/${id}`, {
   //     method: "PUT",
   //     // headers: {
   //     //   authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -34,12 +38,15 @@ const AllUser = () => {
 
   const handleDelete = (user) => {
     console.log("delete", user);
-    fetch(`https://e-shoppers-bd.vercel.app/users/${user._id}`, {
-      method: "DELETE",
-      // headers: {
-      //   "content-type": "application/json",
-      // },
-    })
+    fetch(
+      `https://e-shoppers-bd-server-dmq5bw2u1-mostafizur-pro.vercel.app/users/${user._id}`,
+      {
+        method: "DELETE",
+        // headers: {
+        //   "content-type": "application/json",
+        // },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         alert("Are you DELETE this product");

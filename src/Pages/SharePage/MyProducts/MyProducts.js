@@ -8,7 +8,9 @@ const MyProducts = () => {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
-    fetch("https://e-shoppers-bd.vercel.app/productAll")
+    fetch(
+      "https://e-shoppers-bd-server-dmq5bw2u1-mostafizur-pro.vercel.app/productAll"
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -31,12 +33,15 @@ const MyProducts = () => {
 
   const handleDelete = (product) => {
     console.log("delete");
-    fetch(`https://e-shoppers-bd.vercel.app/${product._id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://e-shoppers-bd-server-dmq5bw2u1-mostafizur-pro.vercel.app/${product._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log("DELETE DATA", data);
@@ -50,13 +55,16 @@ const MyProducts = () => {
   };
 
   const handleAdvertisement = (product) => {
-    fetch("https://e-shoppers-bd.vercel.app/advertisement", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(product),
-    })
+    fetch(
+      "https://e-shoppers-bd-server-dmq5bw2u1-mostafizur-pro.vercel.app/advertisement",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(product),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

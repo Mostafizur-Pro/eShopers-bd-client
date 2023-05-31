@@ -9,7 +9,9 @@ const Profile = () => {
   const { user } = useContext(AuthContext);
   const [profilesData, setProfilesData] = useState([]);
   useEffect(() => {
-    fetch(`https://e-shoppers-bd.vercel.app/users/${user?.email}`)
+    fetch(
+      `https://e-shoppers-bd-server-dmq5bw2u1-mostafizur-pro.vercel.app/users/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

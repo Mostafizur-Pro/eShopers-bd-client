@@ -15,6 +15,7 @@ import AllUser from "../../Pages/SharePage/AllUser/AllUser";
 import AddProducts from "../../Pages/SharePage/AddProducts/AddProducts";
 import MyProducts from "../../Pages/SharePage/MyProducts/MyProducts";
 import Profile from "../../Pages/SharePage/Profile/Profile";
+import PrivateRoute from "../../Pages/SharePage/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -62,14 +63,18 @@ const router = createBrowserRouter([
         element: <ProductsBody />,
         loader: ({ params }) =>
           fetch(
-            `https://e-shoppers-bd.vercel.app/products?category=${params.category}`
+            `https://e-shoppers-bd-server-dmq5bw2u1-mostafizur-pro.vercel.app/products?category=${params.category}`
           ),
       },
     ],
   },
   {
     path: "/deshboard",
-    element: <Deshboard />,
+    element: (
+      <PrivateRoute>
+        <Deshboard />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/deshboard/admin",

@@ -42,7 +42,7 @@ const Login = () => {
   };
 
   // useEffect(() => {
-  //   fetch(`https://e-shoppers-bd.vercel.app/users`)
+  //   fetch(`https://e-shoppers-bd-server-dmq5bw2u1-mostafizur-pro.vercel.app/users`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       // console.log(data);

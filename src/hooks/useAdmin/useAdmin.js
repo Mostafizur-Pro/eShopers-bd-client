@@ -5,7 +5,9 @@ const useAdmin = (email) => {
   const [isAdminLoading, setIsAdminLoading] = useState(true);
   useEffect(() => {
     if (email) {
-      fetch(`https://e-shoppers-bd.vercel.app/users/admin/${email}`)
+      fetch(
+        `https://e-shoppers-bd-server-dmq5bw2u1-mostafizur-pro.vercel.app/users/admin/${email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           // console.log(data);
