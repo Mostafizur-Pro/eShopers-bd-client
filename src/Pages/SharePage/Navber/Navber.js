@@ -138,13 +138,6 @@ const Navber = () => {
                       </li>
                     </>
                   )}
-                  {!userData?.userType === "admin" && (
-                    <>
-                      <li>
-                        <Link to="/deshboard/addproducts">Dashboard</Link>
-                      </li>
-                    </>
-                  )}
                 </>
               ) : (
                 <>
@@ -216,8 +209,6 @@ const Navber = () => {
                           />
                         ) : (
                           <img alt="profilePic" src={user.photoURL} />
-                          // // <p>{user.email}</p>
-                          // <>{user.email}</>
                         )}
                       </>
                     ))}
@@ -238,24 +229,13 @@ const Navber = () => {
                   <li>
                     <a>Settings</a>
                   </li>
-                  <li onClick={handleLogOut}>
-                    <Link>Logout</Link>
-                  </li>
+
                   {users.map((userData) => (
                     <>
                       {userData?.email === user?.email ? (
                         <>
                           {userData?.email ? (
                             <>
-                              {userData?.userType === "admin" && (
-                                <>
-                                  <li>
-                                    <Link to="/deshboard/allUser">
-                                      Dashboard
-                                    </Link>
-                                  </li>
-                                </>
-                              )}
                               {userData?.userType === "normalUser" && (
                                 <>
                                   <li>
@@ -265,13 +245,18 @@ const Navber = () => {
                                   </li>
                                 </>
                               )}
+                              {userData?.userType === "admin" && (
+                                <>
+                                  <li>
+                                    <Link to="/deshboard/allUser">
+                                      Dashboard
+                                    </Link>
+                                  </li>
+                                </>
+                              )}
                             </>
                           ) : (
-                            <>
-                              {/* <li>
-            <Link to="/login">Login</Link>
-          </li> */}
-                            </>
+                            <></>
                           )}
                         </>
                       ) : (
@@ -279,6 +264,9 @@ const Navber = () => {
                       )}
                     </>
                   ))}
+                  <li onClick={handleLogOut}>
+                    <Link>Logout</Link>
+                  </li>
                 </ul>
               </div>
             </>
@@ -287,12 +275,6 @@ const Navber = () => {
               Login
             </Link>
           )}
-          {/* {user?.email? (<>
-          
-          
-          </>:<><Link to="/login" className="btn btn-outline">
-            Login
-          </Link></>)} */}
         </div>
       </div>
     </div>
