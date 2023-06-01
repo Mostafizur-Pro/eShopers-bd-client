@@ -131,6 +131,13 @@ const Navber = () => {
                       </li>
                     </>
                   )}
+                  {userData?.userType === "normalUser" && (
+                    <>
+                      <li>
+                        <Link to="/deshboard/addproducts">Dashboard</Link>
+                      </li>
+                    </>
+                  )}
                   {!userData?.userType === "admin" && (
                     <>
                       <li>
@@ -234,6 +241,44 @@ const Navber = () => {
                   <li onClick={handleLogOut}>
                     <Link>Logout</Link>
                   </li>
+                  {users.map((userData) => (
+                    <>
+                      {userData?.email === user?.email ? (
+                        <>
+                          {userData?.email ? (
+                            <>
+                              {userData?.userType === "admin" && (
+                                <>
+                                  <li>
+                                    <Link to="/deshboard/allUser">
+                                      Dashboard
+                                    </Link>
+                                  </li>
+                                </>
+                              )}
+                              {userData?.userType === "normalUser" && (
+                                <>
+                                  <li>
+                                    <Link to="/deshboard/addproducts">
+                                      Dashboard
+                                    </Link>
+                                  </li>
+                                </>
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              {/* <li>
+            <Link to="/login">Login</Link>
+          </li> */}
+                            </>
+                          )}
+                        </>
+                      ) : (
+                        <></>
+                      )}
+                    </>
+                  ))}
                 </ul>
               </div>
             </>

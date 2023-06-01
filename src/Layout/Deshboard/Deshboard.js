@@ -5,11 +5,13 @@ import Footer from "../../Pages/SharePage/Footer/Footer";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { useContext } from "react";
 import useAdmin from "../../hooks/useAdmin/useAdmin";
+import useUser from "../../hooks/useUser/useUser";
 
 const Deshboard = () => {
   const { user } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
-  console.log("admin", isAdmin);
+  const [isUser] = useUser(user?.email);
+  console.log("isUser", isUser);
   return (
     <div>
       <Navber />
@@ -38,7 +40,7 @@ const Deshboard = () => {
                 </li>
               </>
             )}
-            {!isAdmin && (
+            {isUser && (
               <>
                 <li>
                   <Link to="/deshboard/addproducts">Add a Products</Link>
